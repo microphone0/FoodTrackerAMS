@@ -47,6 +47,7 @@
                                     <outlet property="nameLabel" destination="r5h-ZF-mEd" id="jsd-uW-pDq"/>
                                     <outlet property="photoImageView" destination="Qeh-rt-B3Y" id="6Jy-mi-TWr"/>
                                     <outlet property="ratingControl" destination="0Re-YG-csI" id="iAN-6K-ZKw"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="MmE-fI-Hjo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -108,12 +109,21 @@
                             <constraint firstAttribute="trailing" secondItem="70W-Ok-Y97" secondAttribute="trailing" constant="20" id="A2F-9Z-UCa"/>
                             <constraint firstItem="70W-Ok-Y97" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="AcW-BH-Kmi"/>
                             <constraint firstItem="70W-Ok-Y97" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ewa-rP-1uF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="70W-Ok-Y97" secondAttribute="bottom" constant="20" id="c6g-Re-HD0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="MbM-Q9-PCS">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="8W7-mN-aVb"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Xao-3a-V46"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8W7-mN-aVb">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="Zse-JY-aLW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Xao-3a-V46">
+                            <connections>
+                                <segue destination="TkF-rd-VWu" kind="unwind" unwindAction="unwindToMealListWithSender:" id="20A-Bd-ZBv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="TTz-sk-eQ0" id="vIV-Hz-2Ic"/>
@@ -123,6 +133,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="TkF-rd-VWu" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="8mY-Gg-EEl">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="dMb-rs-wqE"/>
@@ -165,10 +176,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kP-af-cy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="133.92857142857142"/>
+            <point key="canvasLocation" x="1081" y="477"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="1080" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MmE-fI-Hjo"/>
+    </inferredMetricsTieBreakers>
 </document>
